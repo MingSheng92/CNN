@@ -12,7 +12,7 @@ from keras.optimizers import RMSprop, Adam, SGD
 from keras import regularizers
 from keras.callbacks import ReduceLROnPlateau
 
-from scripts.loss_funcs import (unhinged, sigmoid, ramp, savage, boot_soft)
+from loss_funcs import (unhinged, sigmoid, ramp, savage, boot_soft)
 
 
 class CNN(object):
