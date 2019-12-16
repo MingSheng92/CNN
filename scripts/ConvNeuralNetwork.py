@@ -1,5 +1,8 @@
 import os
 import numpy as np
+import tensorflow as tf
+import os
+import pprint
 
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten
