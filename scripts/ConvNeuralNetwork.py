@@ -152,10 +152,10 @@ class CNN(object):
                 self.CNN_model.fit(
                     x = t_x, 
                     y = t_y, 
-                    epochs=self.epochs,
-                    verbose=0, 
-                    validation_data=(val_x, val_y), 
-                    callbacks=[learning_rate_scheduler]
+                    epochs = self.epochs,
+                    verbose = 1, 
+                    validation_data = (val_x, val_y), 
+                    callbacks = [learning_rate_scheduler]
                 )
             )
    
