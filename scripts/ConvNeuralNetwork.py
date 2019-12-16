@@ -115,8 +115,8 @@ class CNN(object):
             # convert the model for tpu usage if the env is connected to TPU
             model = tf.contrib.tpu.keras_to_tpu_model(
                 model,
-				strategy=tf.contrib.tpu.TPUDistributionStrategy(
-					tf.contrib.cluster_resolver.TPUClusterResolver(TPU_ADDRESS))
+		strategy=tf.contrib.tpu.TPUDistributionStrategy(
+			tf.contrib.cluster_resolver.TPUClusterResolver(TPU_ADDRESS))
             )
         
         # compile the final model
@@ -156,14 +156,14 @@ class CNN(object):
                   validation_data=(val_x, val_y),
                   callbacks=[learning_rate_scheduler]
             ))'''
-			model_history.append(self.CNN_model.fit(
-				  t_x, t_y, 
-				  epochs=self.epochs,
+	    model_history.append(self.CNN_model.fit(
+		  t_x, t_y, 
+		  epochs=self.epochs,
                   steps_per_epoch=100,
-				  verbose=0,
-				  validation_data=(val_x, val_y),
+		  verbose=0,
+		  validation_data=(val_x, val_y),
                   callbacks=[learning_rate_scheduler]
-			))
+	    ))
    
             print("Val Score: ", self.CNN_model.evaluate(val_x, val_y))
             print("======="*12, end="\n\n\n")
