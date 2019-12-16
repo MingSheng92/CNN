@@ -11,10 +11,46 @@ from sklearn.model_selection import StratifiedShuffleSplit
 from keras.optimizers import RMSprop, Adam, SGD
 from keras import regularizers
 from keras.callbacks import ReduceLROnPlateau
+from keras import backend as K
 
-from loss_funcs import (unhinged, sigmoid, ramp, savage, boot_soft)
+###from scripts.loss_funcs import (unhinged, sigmoid, ramp, savage, boot_soft)
+
+'''
+All the loss functions for CNN class, import them into one file while investigating some import
+issue
+'''
+
+def unhinged(y_true, y_pred):
+    return K.mean(1. - y_true * y_pred, axis=-1)
 
 
+def sigmoid(y_true, y_pred):
+    beta = 1.0
+    return K.mean(K.sigmoid(-beta * y_true * y_pred), axis=-1)
+
+
+def ramp(y_true, y_pred):
+    beta = 1.0
+    return K.mean(K.minimum(1., K.maximum(0., 1. - beta * y_true * y_pred)),
+                  axis=-1)
+
+
+def savage(y_true, y_pred):
+    y_pred /= K.sum(y_pred, axis=-1, keepdims=True)
+    y_pred = K.clip(y_pred, K.epsilon(), 1.0 - K.epsilon())
+    return K.mean(1. / K.square(1. + K.exp(2 * y_true * y_pred)),
+                  axis=-1)
+
+
+def boot_soft(y_true, y_pred):
+    beta = 0.95
+
+    y_pred /= K.sum(y_pred, axis=-1, keepdims=True)
+    y_pred = K.clip(y_pred, K.epsilon(), 1.0 - K.epsilon())
+    return -K.sum((beta * y_true + (1. - beta) * y_pred) *
+                  K.log(y_pred), axis=-1)
+
+## CNN class
 class CNN(object):
     # initialize class value for later processing purpose
     def __init__(self, batch_size=128, epochs=10, num_classes=10):
