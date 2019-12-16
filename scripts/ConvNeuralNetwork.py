@@ -110,13 +110,13 @@ class CNN(object):
         model.add(Dense(10, activation='softmax'))
 
         if self.TPU != False:
-			device_name = os.environ['COLAB_TPU_ADDR']
-			TPU_ADDRESS = 'grpc://' + device_name
+            device_name = os.environ['COLAB_TPU_ADDR']
+            TPU_ADDRESS = 'grpc://' + device_name
             # convert the model for tpu usage if the env is connected to TPU
             model = tf.contrib.tpu.keras_to_tpu_model(
                 model,
-				strategy=tf.contrib.tpu.TPUDistributionStrategy(
-					tf.contrib.cluster_resolver.TPUClusterResolver(TPU_ADDRESS))
+                strategy=tf.contrib.tpu.TPUDistributionStrategy(
+                    tf.contrib.cluster_resolver.TPUClusterResolver(TPU_ADDRESS))
             )
         
         # compile the final model
@@ -148,15 +148,7 @@ class CNN(object):
         
             print("\nTraining on Fold: ",i)
             i += 1
-            '''model_history.append(self.CNN_model.fit_generator(          
-                  self.train_gen(batch_size, t_x, t_y),
-                  epochs=self.epochs,
-                  steps_per_epoch=100,
-                  verbose=0,
-                  validation_data=(val_x, val_y),
-                  callbacks=[learning_rate_scheduler]
-            ))'''
-			model_history.append(
+            model_history.append(
                 self.CNN_model.fit(
                     t_x, 
                     t_y, 
