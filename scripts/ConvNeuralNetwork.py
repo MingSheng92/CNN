@@ -150,10 +150,9 @@ class CNN(object):
             i += 1
             model_history.append(
                 self.CNN_model.fit(
-                    t_x, 
-                    t_y, 
-                    epochs=self.epochs, 
-                    steps_per_epoch=100, 
+                    x = t_x, 
+                    y = t_y, 
+                    epochs=self.epochs,
                     verbose=0, 
                     validation_data=(val_x, val_y), 
                     callbacks=[learning_rate_scheduler]
