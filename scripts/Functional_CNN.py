@@ -88,19 +88,19 @@ class CNN(object):
         # run a check if this is connected to a TPU
         self.checkEnv()
 
-        input = Input(self.input_shape)
+        input = Input(shape = self.input_shape)
         x = BatchNormalization()(input)
         x = Conv2D(layer_size[0], (3,3), padding = 'same', activation = 'relu')(x)
         x = MaxPooling2D(pool_size=(2,2))(x)
         x = Dropout(drop_out[0])(x)
         
-        x = Input(self.input_shape)
+        x = Input(shape = self.input_shape)
         x = BatchNormalization()(x)
         x = Conv2D(layer_size[1], (3,3), padding = 'same', activation = 'relu')(x)
         x = MaxPooling2D(pool_size=(2,2))(x)
         x = Dropout(drop_out[1])(x)
         
-        x = Input(self.input_shape)
+        x = Input(shape = self.input_shape)
         x = BatchNormalization()(x)
         x = Conv2D(layer_size[2], (3,3), padding = 'same', activation = 'relu')(x)
         x = MaxPooling2D(pool_size=(2,2))(x)
