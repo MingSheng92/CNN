@@ -94,14 +94,12 @@ class CNN(object):
         x = MaxPooling2D(pool_size=(2,2))(x)
         x = Dropout(drop_out[0])(x)
         
-        x = Input(shape = self.input_shape)
-        x = BatchNormalization()(x)
+        x = BatchNormalization(input_shape=self.input_shape)(x)
         x = Conv2D(layer_size[1], (3,3), padding = 'same', activation = 'relu')(x)
         x = MaxPooling2D(pool_size=(2,2))(x)
         x = Dropout(drop_out[1])(x)
         
-        x = Input(shape = self.input_shape)
-        x = BatchNormalization()(x)
+        x = BatchNormalization(input_shape=self.input_shape)(x)
         x = Conv2D(layer_size[2], (3,3), padding = 'same', activation = 'relu')(x)
         x = MaxPooling2D(pool_size=(2,2))(x)
         x = Dropout(drop_out[2])(x)
