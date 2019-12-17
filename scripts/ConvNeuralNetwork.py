@@ -83,7 +83,7 @@ class CNN(object):
             pprint.pprint(devices)
     
     # num_classes
-    def createCNN(self, output_shape, layer_size = [32, 64, 128, 256]
+    def createCNN(self, output_shape, layer_size = [32, 64, 128, 256],
         drop_out = [0.25, 0.25, 0.4, 0.5], loss='categorical_crossentropy'):
         # run a check if this is connected to a TPU
         self.checkEnv()
