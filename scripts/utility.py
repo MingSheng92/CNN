@@ -25,8 +25,7 @@ def plot_predictions(images, predictions, true_labels, dataset):
     for i in range(nc * 4):
         y = i // 4
         x = i % 4
-        print(x)
-        print(y)
+
         axes[x, y].axis('off')
     
         label = LABEL_NAMES[np.argmax(predictions[i])]
