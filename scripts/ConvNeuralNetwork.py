@@ -53,7 +53,7 @@ def boot_soft(y_true, y_pred):
     return -K.sum((beta * y_true + (1. - beta) * y_pred) *
                   K.log(y_pred), axis=-1)
 
-## CNN class
+## CNN class with sequential API 
 class CNN(object):
     # initialize class value for later processing purpose
     def __init__(self, batch_size=128, epochs=10, num_classes=10):
@@ -83,31 +83,32 @@ class CNN(object):
             pprint.pprint(devices)
     
     # num_classes
-    def createCNN(self, output_shape, loss='categorical_crossentropy'):
+    def createCNN(self, output_shape, layer_size = [32, 64, 128, 256]
+        drop_out = [0.25, 0.25, 0.4, 0.5], loss='categorical_crossentropy'):
         # run a check if this is connected to a TPU
         self.checkEnv()
         
         # create  CNN with 2 max pool and 3 dropout layer 
         model = Sequential()
         model.add(BatchNormalization(input_shape=self.input_shape))
-        model.add(Conv2D(32, (3, 3), padding='same', activation='relu'))
+        model.add(Conv2D(layer_size[0], (3, 3), padding='same', activation='relu'))
         model.add(MaxPooling2D(pool_size=(2, 2)))
-        model.add(Dropout(0.25))
+        model.add(Dropout(drop_out[0]))
         
         model.add(BatchNormalization(input_shape=self.input_shape))
-        model.add(Conv2D(64, (3, 3), padding='same', activation='relu'))
+        model.add(Conv2D(layer_size[1], (3, 3), padding='same', activation='relu'))
         model.add(MaxPooling2D(pool_size=(2, 2)))
-        model.add(Dropout(0.25))
+        model.add(Dropout(drop_out[1]))
         
         model.add(BatchNormalization(input_shape=self.input_shape))
-        model.add(Conv2D(128, (3, 3), padding='same', activation='relu'))
+        model.add(Conv2D(layer_size[2], (3, 3), padding='same', activation='relu'))
         model.add(MaxPooling2D(pool_size=(2, 2),padding='same'))
-        model.add(Dropout(0.4))
+        model.add(Dropout(drop_out[2]))
         
         model.add(Flatten())
-        model.add(Dense(256, activation='relu'))
-        model.add(Dropout(0.5))
-        model.add(Dense(10, activation='softmax'))
+        model.add(Dense(layer_size[3], activation='relu'))
+        model.add(Dropout(drop_out[3]))
+        model.add(Dense(self.num_classes, activation='softmax'))
 
         if self.TPU != False:
             device_name = os.environ['COLAB_TPU_ADDR']
