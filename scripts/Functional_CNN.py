@@ -5,7 +5,7 @@ import os
 import pprint
 
 from keras.models import Sequential
-from keras.layers import Dense, Dropout, Flatten
+from keras.layers import Input, Dense, Dropout, Flatten
 from keras.layers import Conv2D, MaxPooling2D, BatchNormalization
 from keras.callbacks import EarlyStopping
 from sklearn.model_selection import StratifiedKFold
