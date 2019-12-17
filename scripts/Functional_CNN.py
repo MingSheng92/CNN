@@ -4,7 +4,7 @@ import tensorflow as tf
 import os
 import pprint
 
-from keras.models import Sequential
+from keras.models import Sequential, Model
 from keras.layers import Input, Dense, Dropout, Flatten
 from keras.layers import Conv2D, MaxPooling2D, BatchNormalization
 from keras.callbacks import EarlyStopping
