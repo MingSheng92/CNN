@@ -26,24 +26,20 @@ issue
 def unhinged(y_true, y_pred):
     return K.mean(1. - y_true * y_pred, axis=-1)
 
-
 def sigmoid(y_true, y_pred):
     beta = 1.0
     return K.mean(K.sigmoid(-beta * y_true * y_pred), axis=-1)
-
 
 def ramp(y_true, y_pred):
     beta = 1.0
     return K.mean(K.minimum(1., K.maximum(0., 1. - beta * y_true * y_pred)),
                   axis=-1)
 
-
 def savage(y_true, y_pred):
     y_pred /= K.sum(y_pred, axis=-1, keepdims=True)
     y_pred = K.clip(y_pred, K.epsilon(), 1.0 - K.epsilon())
     return K.mean(1. / K.square(1. + K.exp(2 * y_true * y_pred)),
                   axis=-1)
-
 
 def boot_soft(y_true, y_pred):
     beta = 0.95
@@ -83,8 +79,8 @@ class CNN(object):
             pprint.pprint(devices)
     
     # num_classes
-    def createCNN(self, output_shape, layer_size = [32, 64, 128, 256],
-        drop_out = [0.25, 0.25, 0.4, 0.5], loss='categorical_crossentropy'):
+    def createCNN(self, output_shape, layer_size = [32, 64, 128],
+        drop_out = [0.25, 0.25, 0.5], loss='categorical_crossentropy'):
         # run a check if this is connected to a TPU
         self.checkEnv()
         
@@ -100,14 +96,9 @@ class CNN(object):
         model.add(MaxPooling2D(pool_size=(2, 2)))
         model.add(Dropout(drop_out[1]))
         
-        model.add(BatchNormalization(input_shape=self.input_shape))
-        model.add(Conv2D(layer_size[2], (3, 3), padding='same', activation='relu'))
-        model.add(MaxPooling2D(pool_size=(2, 2),padding='same'))
-        model.add(Dropout(drop_out[2]))
-        
         model.add(Flatten())
-        model.add(Dense(layer_size[3], activation='relu'))
-        model.add(Dropout(drop_out[3]))
+        model.add(Dense(layer_size[2], activation='relu'))
+        model.add(Dropout(drop_out[2]))
         model.add(Dense(self.num_classes, activation='softmax'))
 
         if self.TPU != False:
