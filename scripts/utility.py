@@ -8,7 +8,7 @@ DG_LABEL = ['0','1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 #cpu_model = NN_test.CNN_model.sync_to_cpu()
 
-def plot_predictions(dataset, predictions, true_labels, correct=True):
+def plot_predictions(dataset, images, predictions, true_labels, correct=True):
     # set label data for plot later
     if dataset == 'mnist':
         LABEL_NAMES = DG_LABEL
