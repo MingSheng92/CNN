@@ -23,34 +23,11 @@ def plot_predictions(dataset, images, predictions, true_labels, correct=True):
 
     print("Found {} {} labels" .format(len(incorrect), label_string))
     
-    n = images.shape[0]
-    nc = int(np.ceil(n / 4))
-    fig = pyplot.figure(figsize=(4,3))
-    # axes = fig.add_subplot(nc, 4)
-    f, axes = pyplot.subplots(nc, 4)
-    f.tight_layout()
-  
-    for i in range(nc * 4):
-        y = i // 4
-        x = i % 4
-
-        axes[x, y].axis('off')
-    
-        label = LABEL_NAMES[np.argmax(predictions[incorrect[i]])]
-        confidence = np.max(predictions[incorrect[i]])
-        
-        if i > n:
-            continue
-        
-        axes[x, y].imshow(images[i])
-        pred_label = np.argmax(predictions[incorrect[i]])
-        axes[x, y].set_title("{} ({})\n {:.3f}".format(
-            LABEL_NAMES[pred_label], 
-            LABEL_NAMES[true_labels[incorrect[i]]],
-            confidence
-        ), color=("green" if true_labels[incorrect[i]] == pred_label else "red"))
-
-    pyplot.gcf().set_size_inches(8, 8)
+    for i, incorrect in enumerate(incorrect[:9]):
+        plt.subplot(3,3,i+1)
+        plt.imshow(images[incorrect].reshape(28,28), interpolation='none')
+        plt.title("Predicted {}, Class {}".format(predictions[incorrect], true_labels[incorrect]))
+        plt.tight_layout()
 
 '''
 def plot_predictions(images, predictions, true_labels, dataset):
