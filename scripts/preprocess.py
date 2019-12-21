@@ -22,6 +22,9 @@ def load_data(dataset='mnist', reshape=True):
 		x_test = x_test.reshape(-1, img_rows, img_cols, 1)
 		
 	return x_train, y_train, x_test, y_test
+    
+def flatten_image(data):
+    return np.array([pix.flatten() for pix in data])
 
 def normalize(data):
 	# return normalized data
