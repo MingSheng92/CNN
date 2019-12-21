@@ -1,6 +1,6 @@
 import numpy as np 
 
-from matplotlib import pyplot
+from matplotlib import plt
 
 # constant 
 FM_LABEL = ['t_shirt', 'trouser', 'pullover', 'dress', 'coat', 'sandal', 'shirt', 'sneaker', 'bag', 'ankle_boots']
@@ -17,17 +17,17 @@ def plot_predictions(dataset, images, predictions, true_labels, correct=True):
     
     label_string = "correct"
     incorrect = np.where(predictions==true_labels)[0]
-    if correct:
+    if not correct:
         label_string = "incorrect"
         incorrect = np.where(predictions!=true_labels)[0]
 
     print("Found {} {} labels" .format(len(incorrect), label_string))
     
     for i, incorrect in enumerate(incorrect[:9]):
-        pyplot.subplot(3,3,i+1)
-        pyplot.imshow(images[incorrect].reshape(28,28), interpolation='none')
-        pyplot.title("Predicted {}, Class {}".format(predictions[incorrect], true_labels[incorrect]))
-        pyplot.tight_layout()
+        plt.subplot(3,3,i+1)
+        plt.imshow(images[incorrect].reshape(28,28), interpolation='none')
+        plt.title("{}, {}".format(LABEL_NAMES[predictions[incorrect]], LABEL_NAMES[true_labels[incorrect]]))
+        plt.subplots_adjust(bottom=0.1, right=1, top=1.7)
 
 '''
 def plot_predictions(images, predictions, true_labels, dataset):
