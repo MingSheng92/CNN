@@ -24,10 +24,10 @@ def plot_predictions(dataset, images, predictions, true_labels, correct=True):
     print("Found {} {} labels" .format(len(incorrect), label_string))
     
     for i, incorrect in enumerate(incorrect[:9]):
-        plt.subplot(3,3,i+1)
-        plt.imshow(images[incorrect].reshape(28,28), interpolation='none')
-        plt.title("Predicted {}, Class {}".format(predictions[incorrect], true_labels[incorrect]))
-        plt.tight_layout()
+        pyplot.subplot(3,3,i+1)
+        pyplot.imshow(images[incorrect].reshape(28,28), interpolation='none')
+        pyplot.title("Predicted {}, Class {}".format(predictions[incorrect], true_labels[incorrect]))
+        pyplot.tight_layout()
 
 '''
 def plot_predictions(images, predictions, true_labels, dataset):
