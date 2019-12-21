@@ -1,6 +1,6 @@
 import numpy as np 
 
-from matplotlib import plt
+import matplotlib.pyplot as plt
 
 # constant 
 FM_LABEL = ['t_shirt', 'trouser', 'pullover', 'dress', 'coat', 'sandal', 'shirt', 'sneaker', 'bag', 'ankle_boots']
