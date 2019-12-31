@@ -19,9 +19,13 @@ For more information on the used dataset, you may refer to the links below: <br 
 ### Methods 
 
 #### Bernoulli Naive Bayes 
-We pick bernoulli Naive Bayes as we are dealing with pixel information, if we treat each pixel as binary features this should work pretty well in theory, and we are  
+Naive Bayes is a probabilitic classifier that has strong (naïve) independence assumptions between the features. Out of all the Naive Bayes model, we chose to work with bernoulli naive bayes as I believe that we can treat the image data as binary representation when calculating the posterior hence it should work relatively better compared to Gaussian or Multinomial Naive Bayes model.
+
+The definition of the likelihood of each Class <b>C<sub>k</sub></b> is shown below: 
+<a href="https://www.codecogs.com/eqnedit.php?latex=p(x|C_k)&space;=&space;\prod_{i=1}^{n}&space;p_{k_i}^{x_i}&space;(1&space;-&space;p_{k_i})^{(1-x_i)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?p(x|C_k)&space;=&space;\prod_{i=1}^{n}&space;p_{k_i}^{x_i}&space;(1&space;-&space;p_{k_i})^{(1-x_i)}" title="p(x|C_k) = \prod_{i=1}^{n} p_{k_i}^{x_i} (1 - p_{k_i})^{(1-x_i)}" /></a>
 
 Additional reading material: <br />
+[Wikipedia](https://en.wikipedia.org/wiki/Naive_Bayes_classifier#Bernoulli_naive_Bayes)
 [NLP Standford](https://nlp.stanford.edu/IR-book/html/htmledition/the-bernoulli-model-1.html)
 
 #### Logistic regression 
