@@ -7,8 +7,11 @@ Today we want to look at different image classification methods with 2 different
 As mentioned in the previous section, we will be performing our test and evaluation on the two MNIST dataset. One is the handwritten digit MNIST and the other is the Fashion MNIST dataset, both dataset has the similar attributes where both datasets contains sets of 28 x 28 greyscale image label under 10 classes.
 
 image example of MNIST with some explaination 
+<p><a href="https://commons.wikimedia.org/wiki/File:MnistExamples.png#/media/File:MnistExamples.png"><img src="https://upload.wikimedia.org/wikipedia/commons/2/27/MnistExamples.png" alt="MNIST sample images"></a><br>By <a href="//commons.wikimedia.org/w/index.php?title=User:Jost_swd15&amp;action=edit&amp;redlink=1" class="new" title="User:Jost swd15 (page does not exist)">Josef Steppan</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=64810040">Link</a></p>
 
-image example of fashion MNIST with some explaination
+Fashion Mnist dataset is created because hand written digits MNIST dataset is too simple, where it can easily achieve 90% accuracy with simple model setup.
+![Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist/blob/master/doc/img/fashion-mnist-sprite.png)
+Image taken from Fashion-MNIST oficial github website.
 
 For more information on the used dataset, you may refer to the links below: <br /> 
 [MNIST handwritten digits dataset](yann.lecun.com/exdb/mnist/). <br /> 
