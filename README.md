@@ -43,13 +43,18 @@ Additional reading material:  <br />
 
 #### Convolutional Neural Network 
 
-[Wikipedia](https://en.wikipedia.org/wiki/Convolutional_neural_network)
+Anyone that has some exposure to machine learning would have heard of convolutional neural network, it is one of the most commonly used machine learning method for analyzing visual imagery. 
+
+Additional reading material: <br />
+[Wikipedia](https://en.wikipedia.org/wiki/Convolutional_neural_network) <br />
+[Adit Deshpande](https://adeshpande3.github.io/A-Beginner%27s-Guide-To-Understanding-Convolutional-Neural-Networks/) <br />
 
 ### Results 
 
 Without any doubts we can directly assume that Neural Network will have better results compared to the other machine learning methods and the final results shows. However, Bernoulli Naive Bayes Classifier is getting comparable results to logistic regression which is kinda of a surprise where Naive Bayes does not really have good prediction results in real life tasks though that work really well in theory. But our current implementation of logistic regression is not optimal where if we have implement regularization we can sure to see huge improvement in creating a more robust classifier. Though CNN have achieved a better prediction results, there are extremely sensitive to different dataset, meaning with different task you will need to define different architechture where there is no such thing as one model to fit all (No free lunch theory).
 
 From the table below, You can find the summary of accuracy/performance of all the different classifiers for MNIST and Fashion-MNIST dataset.
+![Result](https://github.com/MingSheng92/Image_Classification/blob/master/img/result.JPG)
 
 ### Future Work 
 1. Add regularization to logistic regression to add robustness to the classifier.
