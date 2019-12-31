@@ -16,3 +16,8 @@ For more information on the used dataset, you may refer to the links below: <br 
 
 ### Methods 
 
+Bernoulli Naive Bayes 
+
+Logistic regression 
+
+Convolutional Neural Network 
