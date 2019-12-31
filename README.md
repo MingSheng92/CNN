@@ -16,8 +16,16 @@ For more information on the used dataset, you may refer to the links below: <br 
 
 ### Methods 
 
-Bernoulli Naive Bayes 
+#### Bernoulli Naive Bayes 
 
-Logistic regression 
 
-Convolutional Neural Network 
+#### Logistic regression 
+We will use multi-class logistic regression for this task, with softmax function, where the definition can be found below: 
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=$\textbf{x}&space;\in&space;\textbf{R}^{D}$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$\textbf{x}&space;\in&space;\textbf{R}^{D}$" title="$\textbf{x} \in \textbf{R}^{D}$" /></a>
+
+When there are <b>_K_</b> different classes <b>C<sub>1</sub>,C<sub>2</sub>, ...... , C<sub>k</sub></b>. For each class <b>C<sub>k</sub></b>, we have parameter vector <b>w<sub>k</sub></b> and the posterior probability of the model will be: 
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=h_\textbf{w}(\textbf{x})&space;=&space;p(y&space;=&space;C_k|\textbf{x};\textbf{w})&space;=&space;\frac{\exp(\textbf{w}_k^T\textbf{x})}{\sum_{k=1}^K&space;\exp(\textbf{w}_k^T\textbf{x})}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?h_\textbf{w}(\textbf{x})&space;=&space;p(y&space;=&space;C_k|\textbf{x};\textbf{w})&space;=&space;\frac{\exp(\textbf{w}_k^T\textbf{x})}{\sum_{k=1}^K&space;\exp(\textbf{w}_k^T\textbf{x})}" title="h_\textbf{w}(\textbf{x}) = p(y = C_k|\textbf{x};\textbf{w}) = \frac{\exp(\textbf{w}_k^T\textbf{x})}{\sum_{k=1}^K \exp(\textbf{w}_k^T\textbf{x})}" /></a>
+
+#### Convolutional Neural Network 
