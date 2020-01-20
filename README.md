@@ -19,7 +19,9 @@ For more information on the used dataset, you may refer to the links below: <br 
 ### Pre-processing 
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=z&space;=&space;\frac{x&space;-&space;min(x)}{max(x)-&space;min(x)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?z&space;=&space;\frac{x&space;-&space;min(x)}{max(x)-&space;min(x)}" title="z = \frac{x - min(x)}{max(x)- min(x)}" /></a> 
-, where _x_ will be each and every pixel in our case, and _z_ would be our rescaled data that is ranging between <a href="https://www.codecogs.com/eqnedit.php?latex=$&space;0&space;\le&space;z&space;\le&space;1&space;$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$&space;0&space;\le&space;z&space;\le&space;1&space;$" title="$ 0 \le z \le 1 $" /></a>.
+, where _x_ will be each and every pixel in our case, and _z_ would be our rescaled data that is ranging between <a href="https://www.codecogs.com/eqnedit.php?latex=$&space;0&space;\le&space;z&space;\le&space;1&space;$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$&space;0&space;\le&space;z&space;\le&space;1&space;$" title="$ 0 \le z \le 1 $" /></a>. 
+
+Another way to perform normalization is to divide all pixel data by 255 since we already know pixel has a min value of 0 and a max of 255.
 
 ### Methods 
 
